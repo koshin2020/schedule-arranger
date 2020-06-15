@@ -1,7 +1,24 @@
 doctype html
 html
   head
-    title= title
-    link(rel='stylesheet', href='/stylesheets/style.css')
+    title 予定調整アプリ
+    meta(charset="utf-8")
+    meta(name="viewport" content="width=device-width, initial-scale=1")
+    link(rel="stylesheet",
+    href="https://stackpath.bootstrapcdn.com/bootstrap/4.5.0/css/bootstrap.min.css",
+    integrity="sha384-9aIt2nRpC12Uk9gS9baDl411NQApFmC26EwAOH8WgZl5MYYxFfc+NcPb1dKGj7Sk",
+    crossorigin="anonymous")
   body
-    block content
+    nav.navbar.navbar-light.bg-light
+      div.navbar-header
+        a(href="/").navbar-brand.nav-link 予定調整アプリ
+      ul.navbar-nav
+        if user
+          li.nav-item
+            a(href="/logout").nav-link #{user.username} をログアウト
+        else
+          li.nav-item
+            a(href="/login").nav-link ログイン
+    div.container
+      block content
+    script(src="/javascripts/bundle.js")
